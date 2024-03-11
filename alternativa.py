@@ -7,12 +7,22 @@ class Alternativa():
         self.contenido = contenido
         self.ayuda = ayuda
 
-    # Mecanismo para mostrar una alternativa
+    # Mecanismo para mostrar sus atributos en forma de tupla
     @property
     def obtener_atributos(self) -> tuple:
         
         # Devuelve una tupla con los atributos
         return self.contenido, self.ayuda
+    
+    # Método accesador de su contenido
+    @property
+    def obtener_contenido(self) -> str:
+        return self.contenido
+
+    # Método accesador de su ayuda
+    @property
+    def obtener_ayuda(self) -> str:
+        return self.ayuda
     
     # Método mutador para atributo contenido
     @contenido.setter
@@ -20,6 +30,6 @@ class Alternativa():
         self.contenido = contenido
 
     # Método mutador para atributo ayuda
-    @contenido.ayuda
+    @ayuda.setter
     def ayuda(self, ayuda: str) -> None:
         self.ayuda = ayuda
