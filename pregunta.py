@@ -7,7 +7,7 @@ from alternativa import Alternativa
 class Pregunta():
 
     # Método constructor de la clase y sus atributos
-    def __init__(self, enunciado: str, ayuda: str = "", requerida: bool = False, alternativas: List[Alternativa] = []) -> None:
+    def __init__(self, enunciado: str, ayuda: str = "", requerida: bool = False, alternativas: List[dict] = []) -> None:
         self.enunciado = enunciado
         self.ayuda = ayuda
         self.requerida = requerida
@@ -34,7 +34,7 @@ class Pregunta():
 
     # Aún no se define el mecanismo para modificar este atributo
     @alternativas.setter
-    def alternativas(self, alternativas: List[Alternativa]) -> None:
+    def alternativas(self, alternativas: List[dict]) -> None:
         pass
     
     # Método para mostrar pregunta, ayuda, alternativas y ayuda de las alternativas
@@ -55,8 +55,8 @@ class Pregunta():
 
         # Imprime las alternativas con ayuda (si la tienen)
         for alt in alternativas:
-            if alt.obtener_ayuda != "":
-                print(alt.obtener_contenido)
-                print(alt.obtener_ayuda)
-            else:
-                print(alt.obtener_contenido)
+            contenido = alt['contenido']    # Primer valor del diccionario
+            print(contenido)                # Lo imprime
+            ayuda = alt['ayuda']            # Segundo valor del diccionario
+            if ayuda:
+                print(ayuda)                # Si no está en blanco lo imprime
