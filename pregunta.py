@@ -14,7 +14,6 @@ class Pregunta():
     def obtener_atributos(self) -> tuple:
         return (self.enunciado, self.ayuda, self.requerida, self.alternativas)
     
-    
     # Métodos seteadores para los atributos
     @enunciado.setter
     def enunciado(self, enunciado: str) -> None:
@@ -38,22 +37,25 @@ class Pregunta():
         pass
     
     # Método para mostrar pregunta, ayuda, alternativas y ayuda de las alternativas
-    def mostrar_pregunta(self) -> None:
+    def mostrar_pregunta(self) -> list[dict]:
 
-        # Imprime el enunciado de la pregunta
-        print(self.enunciado)
-
-        # Si la pregunta tiene ayuda la imprime
-        if ayuda != "":
-            print(self.ayuda)
+        # Asigna los componentes de la pregunta
+        enun = self.enunciado
+        ayud = self.ayuda
+        requ = self.requerida
+        dict_alternativas = {}
         
-        # Imprime si es requerida o no (True or False)
-        print(self.requerida)
-
-        # Imprime las alternativas con ayuda (si la tienen)
+        # Itera y asigna los componentes de las alternativas
         for alt in self.alternativas:
-            contenido = alt['contenido']    # Primer valor del diccionario
-            print(contenido)                # Lo imprime
-            ayuda = alt['ayuda']            # Segundo valor del diccionario
-            if ayuda:
-                print(ayuda)                # Si no está en blanco lo imprime
+            contenido = alt['contenido']                  
+            ayuda = alt['ayuda']            
+            dict_alternativas['contenido'] = contenido
+            dict_alternativas['ayuda'] = ayuda
+
+        # Devuelve un diccionario con los componentes de la pregunta     
+        return {
+            'enunciado': enun,
+            'ayuda': ayud,
+            'requerida': requ,
+            'alternativas': dict_alternativas
+            }

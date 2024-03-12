@@ -1,16 +1,12 @@
 
 # Importaciones necesarias para la implementación
-from pregunta import Pregunta
 from abc import ABC, abstractmethod
-
-# Importa la data de las regiones
-from regiones import listado_regiones
 
 # Se define la clase Encuesta
 class Encuesta(ABC):
 
     # Método constructor de la clase con parámetro y atributos
-    def __init__(self, listado_preguntas: list[Pregunta]) -> None:
+    def __init__(self, listado_preguntas: list[dict]) -> None:
         self.nombre = ""
         self.listado_preguntas = listado_preguntas
         self.listado_respuestas = ""
@@ -34,7 +30,7 @@ class Encuesta(ABC):
 
         # Itera el listado de preguntas e imprime invocando al método correspondiente
         for pregunta in self.listado_preguntas:
-            pregunta.mostrar_pregunta()
+            print(pregunta.mostrar_pregunta())
 
     # Método abstracto para agregar un listado de respuestas a la lista
     @abstractmethod
@@ -45,7 +41,7 @@ class Encuesta(ABC):
 class EncuestaLimitidaPorEdad(Encuesta):
 
     # Método constructor de la clase y sus atributos
-    def __init__(self, listado_preguntas: list[Pregunta], edad_minima: int, edad_maxima: int) -> None:
+    def __init__(self, listado_preguntas: list[dict], edad_minima: int, edad_maxima: int) -> None:
 
         # Invoca al constructor de la clase de la cual hereda
         super().__init__(self, listado_preguntas)
@@ -65,7 +61,7 @@ class EncuestaLimitidaPorEdad(Encuesta):
 class EncuestaLimitadadPorRegion(Encuesta):
 
     # Método constructor de la clase con parámetros y atributos
-    def __init__(self, listado_preguntas: list[Pregunta], listado_regiones: int) -> None:
+    def __init__(self, listado_preguntas: list[dict], listado_regiones: list[int]) -> None:
 
         # Se invoca al constructor de la clase de la cual hereda
         super().__init__(self, listado_preguntas)
