@@ -9,7 +9,7 @@ class Alternativa():
 
     # Mecanismo para mostrar sus atributos en forma de tupla
     @property
-    def obtener_atributos(self) -> dict:
+    def mostrar_alternativa(self) -> dict:
         
         # Devuelve un diccionario con los atributos
         return {"contenido": self.contenido, "ayuda": self.ayuda}
