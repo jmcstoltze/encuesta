@@ -48,8 +48,8 @@ La clase `Alternativa` representa una alternativa de respuesta para una pregunta
 
 Adjunto se encuentra el diagrama de clases en formato PNG que ilustra las relaciones entre las clases implementadas.
 
-- [classes.png]
-- [packages.png]
+- (classes.png)
+- (packages.png)
 
 ## Uso
 
