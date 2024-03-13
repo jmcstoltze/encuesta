@@ -51,10 +51,10 @@ class EncuestaLimitidaPorEdad(Encuesta):
         self.edad_maxima = edad_maxima       
     
     # Método para agregar un listado de respuestas a la encuesta por parte del usuario
-    def agregar_listado_respuestas(self, edad_usuario: int, listado_respuestas ) -> None:
+    def agregar_listado_respuestas(self, edad_usuario: int, listado_respuestas: list[int] ) -> None:
         
-        #if edad_usuario in range [self.edad_minima, self.edad_maxima]:
-        # Por implementar
+        # if edad_usuario in range [self.edad_minima, self.edad_maxima]:
+        # Por implementar...
         pass
 
 # Se define la clase encuesta limitada por región
@@ -75,7 +75,8 @@ class EncuestaLimitadadPorRegion(Encuesta):
         self.listado_regiones = nuevo_listado_regiones
 
     # Método para agregar un listado de respuestas por parte del usuario
-    def agregar_listado_respuestas(self, region_usuario: int, listado_respuestas) -> None:
-        # Se debe implementar que el usuario pertenezca a la region establecida para la encuesta
+    def agregar_listado_respuestas(self, region_usuario: int, listado_respuestas: list[int]) -> None:
+        
+        # Se debe implementar que el usuario pertenezca a la region establecida para la encuesta...
         # if region_usuario in listado_regiones:
         pass
