@@ -5,7 +5,6 @@ Este proyecto consiste en una implementación básica de un sistema para la crea
 
 ## Contenido
 
-
 - [Encuestas Interactivas](#encuestas-interactivas)
   - [Contenido](#contenido)
   - [Encuesta.py](#encuestapy)
