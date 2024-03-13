@@ -1,15 +1,19 @@
 
 # Importaciones necesarias para la implementación
 from abc import ABC, abstractmethod
+from pregunta import Pregunta
+from usuario import Usuario
+from listado_respuestas import ListadoRespuestas
 
 # Se define la clase Encuesta
 class Encuesta(ABC):
 
     # Método constructor de la clase con parámetro y atributos
-    def __init__(self, listado_preguntas: list[dict]) -> None:
+    def __init__(self, listado_preguntas: list[Pregunta], usuario: Usuario) -> None:
         self.nombre = ""
         self.listado_preguntas = listado_preguntas
         self.listado_respuestas = ""
+        self.usuario = usuario
 
     # Sólo el nombre puede consultarse y modificarse libremente
     # Accesador del atributo nombre
@@ -41,7 +45,7 @@ class Encuesta(ABC):
 class EncuestaLimitidaPorEdad(Encuesta):
 
     # Método constructor de la clase y sus atributos
-    def __init__(self, listado_preguntas: list[dict], edad_minima: int, edad_maxima: int) -> None:
+    def __init__(self, listado_preguntas: list[Pregunta], edad_minima: int, edad_maxima: int) -> None:
 
         # Invoca al constructor de la clase de la cual hereda
         super().__init__(self, listado_preguntas)
@@ -51,12 +55,16 @@ class EncuestaLimitidaPorEdad(Encuesta):
         self.edad_maxima = edad_maxima       
     
     # Método para agregar un listado de respuestas a la encuesta por parte del usuario
-    def agregar_listado_respuestas(self, edad_usuario: int, listado_respuestas: list[int] ) -> None:
+    def agregar_listado_respuestas(self, edad_usuario: int, listado_respuestas: list[ListadoRespuestas] ) -> None:
         
         # if edad_usuario in range [self.edad_minima, self.edad_maxima]:
         # Por implementar...
+
+        # Nota: Cuando se implemente al 100% debe recibir el listado de respuestas como una lista de diccionarios
+
         pass
 
+        
 # Se define la clase encuesta limitada por región
 class EncuestaLimitadadPorRegion(Encuesta):
 
@@ -75,8 +83,11 @@ class EncuestaLimitadadPorRegion(Encuesta):
         self.listado_regiones = nuevo_listado_regiones
 
     # Método para agregar un listado de respuestas por parte del usuario
-    def agregar_listado_respuestas(self, region_usuario: int, listado_respuestas: list[int]) -> None:
+    def agregar_listado_respuestas(self, region_usuario: int, listado_respuestas: list[ListadoRespuestas]) -> None:
         
         # Se debe implementar que el usuario pertenezca a la region establecida para la encuesta...
         # if region_usuario in listado_regiones:
+        
+        # Nota: Cuando se implemente al 100% debe recibir el listado de respuestas como una lista de diccionarios
+        
         pass

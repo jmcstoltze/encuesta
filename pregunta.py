@@ -1,9 +1,11 @@
 
+from alternativa import Alternativa
+
 # Se define la clase pregunta
 class Pregunta():
 
     # Método constructor de la clase y sus atributos
-    def __init__(self, enunciado: str, ayuda: str = "", requerida: bool = False, alternativas: list[dict] = []) -> None:
+    def __init__(self, enunciado: str, ayuda: str = "", requerida: bool = False, alternativas: list[Alternativa] = []) -> None:
         self.enunciado = enunciado
         self.ayuda = ayuda
         self.requerida = requerida
